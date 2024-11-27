@@ -2,7 +2,7 @@
 name: "\U0001F41B Bug Template"
 about: "\b버그 리포트 이슈 템플릿"
 title: "[BUG]"
-labels: ''
+labels: "\U0001F41B Bug"
 assignees: ''
 
 ---
