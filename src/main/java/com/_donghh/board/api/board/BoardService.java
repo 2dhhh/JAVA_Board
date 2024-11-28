@@ -28,7 +28,7 @@ public class BoardService {
     @Transactional
     public List<SelectBoard> getAllBoard() {
         List<Board> boards = boardRepository.findAll();
-        List<SelectBoard> selectBoards = boardMapper.toEntityList(boards);
+        List<SelectBoard> selectBoards = boardMapper.toDtoList(boards);
         return selectBoards;
     }
 

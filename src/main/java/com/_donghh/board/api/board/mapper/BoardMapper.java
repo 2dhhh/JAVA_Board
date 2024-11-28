@@ -14,7 +14,7 @@ public class BoardMapper {
         return new Board(createBoard.getTitle(), createBoard.getContent());
     }
 
-    public List<SelectBoard> toEntityList(List<Board> boardList) {
+    public List<SelectBoard> toDtoList(List<Board> boardList) {
         List<SelectBoard> lists = new ArrayList<SelectBoard>();
         for (Board board : boardList) {
             SelectBoard selectBoard = new SelectBoard(board.getTitle(), board.getContent());
