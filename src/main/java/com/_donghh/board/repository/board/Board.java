@@ -1,5 +1,7 @@
 package com._donghh.board.repository.board;
 
+import com._donghh.board.api.board.dto.request.CreateBoard;
+import com._donghh.board.api.board.dto.request.UpdateBoard;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,5 +29,10 @@ public class Board {
     public Board(String title, String content) {
         this.title = title;
         this.content = content;
+    }
+
+    public void update(UpdateBoard updateBoard){
+        this.title = updateBoard.title();
+        this.content = updateBoard.content();
     }
 }
