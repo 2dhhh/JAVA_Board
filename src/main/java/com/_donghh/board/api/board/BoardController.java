@@ -7,8 +7,10 @@ import com._donghh.board.api.board.dto.response.SelectBoard;
 import jakarta.validation.Valid;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -50,4 +52,11 @@ public class BoardController {
     }
 
     // 게시글 삭제
+    @DeleteMapping("/{id}")
+    public ResponseEntity<ApiResponse<Void>> deleteBoard(@PathVariable Long id)
+        throws NotFoundException {
+        boardService.deleteBoard(id);
+        return ApiResponse.ok();
+    }
+
 }

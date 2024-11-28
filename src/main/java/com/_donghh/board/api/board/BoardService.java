@@ -35,9 +35,18 @@ public class BoardService {
     }
 
     // 게시글 업데이트
+    @Transactional
     public void update(Long id, UpdateBoard updateBoard) throws Exception {
         Board board = boardRepository.findById(id).orElseThrow(NotFoundException::new);
         board.update(updateBoard);
         boardRepository.save(board);
+    }
+
+    @Transactional
+    public void deleteBoard(Long id) throws NotFoundException {
+        if (!boardRepository.existsById(id)) {
+            throw new NotFoundException();
+        }
+        boardRepository.deleteById(id);
     }
 }
