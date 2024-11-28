@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class BoardMapper {
 
     public Board toEntity(CreateBoard createBoard){
-        return new Board(createBoard.getTitle(), createBoard.getContent());
+        return new Board(createBoard.title(), createBoard.content());
     }
 
     public List<SelectBoard> toDtoList(List<Board> boardList) {

@@ -1,6 +1,5 @@
 package com._donghh.board.repository.board;
 
-import com._donghh.board.api.board.dto.request.CreateBoard;
 import com._donghh.board.api.board.dto.request.UpdateBoard;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
