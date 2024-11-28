@@ -18,10 +18,20 @@ repositories {
 }
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-	implementation("org.springframework.boot:spring-boot-starter-validation")
+	// Spring
 	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("org.springframework.boot:spring-boot-starter-validation")
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+
+	// Database
 	runtimeOnly("com.mysql:mysql-connector-j")
+
+	// lombok
+	implementation("org.projectlombok:lombok")
+	annotationProcessor("org.projectlombok:lombok")
+
+
+	// Test
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
