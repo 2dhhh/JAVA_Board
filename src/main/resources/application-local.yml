@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:${LOCAL_MYSQL_PORT}/board?useUnicode=true&useSSL=false&allowPublicKeyRetrieval=true
+    username: ${LOCAL_MYSQL_USERNAME}
+    password: ${LOCAL_MYSQL_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+# 뒤에 URL 옵션은 추후에 조금 더 찾아보기
+
+  jpa:
+    hibernate:
+      ddl-auto: create # option : create, create-drop, update, validate, none
+    properties:
+      hibernate: # JPA 공급자에 설정할 추가 기본 속성
+        format_sql: true # sql 쿼리 포맷팅 -> SQL 쿼리를 사람이 읽기 쉽게 포맷팅하는 것
+        show-sql: true # 콘솔에서 sql 쿼리를 보여줌
+
+
+# create : 기존 테이블을삭제하고 다시 생성
+# create-drop : 기존 테이블을 삭제하고 다시생성. 종료 시점에 테이블 삭제
+# update : 변경된 스키마 적용 (운영 DB에서 사용 X)
+# validate : Entity 와 테이블이 정상 매핑 되었는지 확인
+# none : 사용하지 않음
+
+# 운영 환경에서 ddl-auto 는 none 혹은 validate 사용
+# create 혹은 update 는 데이터 손실 혹은 예기치 않은 동작을 초래할 수 있다
+
+# TODO : 로깅 레벨 체크
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.type: trace
+
