@@ -29,4 +29,10 @@ public class CommentService {
         comment.update(updateComment);
         commentRepository.save(comment);
     }
+
+    // 댓글 삭제
+    public void deleteComment(Long boardId, Long commentId) {
+        Comment comment = commentRepository.findById(commentId).orElseThrow();
+        commentRepository.delete(comment);
+    }
 }
