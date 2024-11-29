@@ -28,4 +28,9 @@ public class Comment {
 
     @Column(nullable = false)
     private String content;
+
+    public Comment(Board board, String content) {
+        this.board = board;
+        this.content = content;
+    }
 }
