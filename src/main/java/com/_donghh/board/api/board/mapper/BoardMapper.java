@@ -22,4 +22,8 @@ public class BoardMapper {
         }
         return lists;
     }
+
+    public SelectBoard toDto(Board board) {
+        return new SelectBoard(board.getTitle(), board.getContent());
+    }
 }
