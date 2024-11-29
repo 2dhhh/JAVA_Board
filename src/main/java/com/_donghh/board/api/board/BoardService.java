@@ -34,6 +34,13 @@ public class BoardService {
         return selectBoards;
     }
 
+    // 단일 게시글 조회
+    public SelectBoard getBoard(Long boardId) {
+        Board board = boardRepository.findById(boardId).orElseThrow();
+        SelectBoard selectBoard = boardMapper.toDto(board);
+        return selectBoard;
+    }
+
     // 게시글 업데이트
     @Transactional
     public void update(Long id, UpdateBoard updateBoard) throws Exception {
@@ -49,4 +56,6 @@ public class BoardService {
         }
         boardRepository.deleteById(id);
     }
+
+
 }

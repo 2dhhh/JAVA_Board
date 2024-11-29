@@ -34,11 +34,18 @@ public class BoardController {
         return ApiResponse.create();
     }
 
-    // 게시글 조회
+    // 게시글 조회 -> 모든 게시글 목록을 보여준다
     @GetMapping
     public ResponseEntity<ApiResponse<List<SelectBoard>>> getAllBoard() {
         List<SelectBoard> selectBoards = boardService.getAllBoard();
         return ApiResponse.of(HttpStatus.OK, selectBoards);
+    }
+
+    // 단일 게시글 조회 -> 게시글 상세페이지를 보여준다
+    @GetMapping("{boardId}")
+    public ResponseEntity<ApiResponse<SelectBoard>> getBoard(@PathVariable Long boardId){
+        SelectBoard selectBoard = boardService.getBoard(boardId);
+        return ApiResponse.of(HttpStatus.OK, selectBoard);
     }
 
     // 게시글 업데이트
