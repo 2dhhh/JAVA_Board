@@ -5,7 +5,6 @@ import com._donghh.board.repository.board.Board;
 import com._donghh.board.repository.board.BoardRepository;
 import com._donghh.board.repository.comment.Comment;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -14,8 +13,8 @@ public class CommentMapper {
 
     private final BoardRepository boardRepository;
 
-    public Comment toEntity(Long boardId, CreateComment createComment) throws NotFoundException {
-        Board board = boardRepository.findById(boardId).orElseThrow(NotFoundException::new);
+    public Comment toEntity(Long boardId, CreateComment createComment) {
+        Board board = boardRepository.findById(boardId).orElseThrow();
         return (new Comment(board, createComment.content()));
     }
 }

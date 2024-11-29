@@ -1,5 +1,6 @@
 package com._donghh.board.repository.comment;
 
+import com._donghh.board.api.comment.dto.request.UpdateComment;
 import com._donghh.board.repository.board.Board;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -32,5 +33,9 @@ public class Comment {
     public Comment(Board board, String content) {
         this.board = board;
         this.content = content;
+    }
+
+    public void update(UpdateComment updateComment) {
+        this.content = updateComment.content();
     }
 }
